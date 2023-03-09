@@ -8,15 +8,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Optional;
+
 @Builder
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @NoArgsConstructor
 public class Restaurant {
-    String name;
-    int customerRating;
-    int distance;
-    int price;
-    int cuisineId;
+    Optional<String> name;
+    Optional<Integer> customerRating;
+    Optional<Integer> distance;
+    Optional<Integer> price;
+    Optional<Integer> cuisineId;
 }

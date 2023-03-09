@@ -13,6 +13,6 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Cuisine {
-    int id;
+    Integer id;
     String name;
 }

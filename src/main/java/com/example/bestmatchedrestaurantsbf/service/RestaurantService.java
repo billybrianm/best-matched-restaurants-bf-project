@@ -13,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -20,7 +21,15 @@ import java.util.List;
 public class RestaurantService {
     FileProperties fileProperties;
 
+    /**
+     * Main method from the service which will call the other methods to perform the logic of matching best restaurants
+     * @param restaurant
+     * @return List<Restaurant>
+     */
     public List<Restaurant> matchBestRestaurants(Restaurant restaurant) {
+        List<Restaurant> restaurantList = loadRestaurantsFromFile();
+
+
         return loadRestaurantsFromFile();
     }
 
@@ -36,11 +45,11 @@ public class RestaurantService {
             while ((line = br.readLine()) != null) {
                 String[] restaurantCsv = line.split(",");
                 restaurantList.add(Restaurant.builder()
-                        .name(restaurantCsv[0])
-                        .customerRating(Integer.valueOf(restaurantCsv[1]))
-                        .distance(Integer.valueOf(restaurantCsv[2]))
-                        .price(Integer.valueOf(restaurantCsv[3]))
-                        .cuisineId(Integer.valueOf(restaurantCsv[4]))
+                        .name(Optional.of(restaurantCsv[0]))
+                        .customerRating(Optional.of(Integer.valueOf(restaurantCsv[1])))
+                        .distance(Optional.of(Integer.valueOf(restaurantCsv[2])))
+                        .price(Optional.of(Integer.valueOf(restaurantCsv[3])))
+                        .cuisineId(Optional.of(Integer.valueOf(restaurantCsv[4])))
                         .build());
             }
             return restaurantList;
