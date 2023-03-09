@@ -8,7 +8,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,7 +25,7 @@ public class RestaurantController {
      * @return List of Restaurants that were matched to the user's criteria
      */
     @GetMapping(value="/restaurants", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Restaurant>> getRestaurants(@RequestParam(required = false) Restaurant restaurant) {
+    public ResponseEntity<List<Restaurant>> getRestaurants(Restaurant restaurant) {
         log.info("GET Restaurants: " + restaurant);
         List<Restaurant> restaurants = restaurantService.matchBestRestaurants(restaurant);
 
