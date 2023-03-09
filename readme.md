@@ -1,6 +1,8 @@
 # Best Matched Restaurants
 This application is an API with functionality to search for restaurants based on specific criteria.
 
+Best used alongside the frontend counterpart.
+
 ## Features
 - Endpoint ```GET /restaurants``` to list all restaurants
 - Following parameters can be used to filter: ```name, customerRating, distance, price, cuisineId```.
