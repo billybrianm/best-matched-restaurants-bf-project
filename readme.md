@@ -5,17 +5,21 @@ Best used alongside the frontend counterpart.
 
 ## Features
 - Endpoint ```GET /restaurants``` to list all restaurants
-- Following parameters can be used to filter: ```name, customerRating, distance, price, cuisineId```.
+  - Following parameters can be used to filter: ```name, customerRating, distance, price, cuisineId```.
+- Endpoint ```GET /cuisines``` to list all cuisines
 
 ## Requirements
 - Java 17
 - Maven
 
 ## Building
- ```mvn clean install```
+```mvn clean install```
 
 ## Running
 ```java -jar target/best-matched-restaurants-bf.jar```
+
+## Testing
+```mvn test```
 
 ## Assumptions
 - This project was created as a REST API since where were no restrictions and I wanted to create a fully fledged system with backend and frontend communications
