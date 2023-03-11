@@ -10,4 +10,8 @@ class BestMatchedRestaurantsBfApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	public void applicationStartTest() {
+		BestMatchedRestaurantsBfApplication.main(new String[]{});
+	}
 }

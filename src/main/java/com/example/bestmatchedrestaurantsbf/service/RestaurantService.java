@@ -30,7 +30,7 @@ public class RestaurantService {
      * @return List<Restaurant>
      */
     public List<Restaurant> matchBestRestaurants(Restaurant restaurantQuery) {
-        List<Restaurant> matchingRestaurants = loadRestaurantsFromFile();
+        List<Restaurant> matchingRestaurants = loadRestaurantsFromFile(fileProperties.getRestaurants());
 
         if(restaurantQuery.getName() != null) {
             matchingRestaurants = getAllWithSimilarName(matchingRestaurants, restaurantQuery.getName().get());
@@ -58,9 +58,9 @@ public class RestaurantService {
      * Loads all restaurants from a CSV file configures in the application's configuration.
      * @return list of all Restaurants present on the CSV file
      */
-    public List<Restaurant> loadRestaurantsFromFile() {
+    public List<Restaurant> loadRestaurantsFromFile(String path) {
         try {
-            BufferedReader br = new BufferedReader(new FileReader(new ClassPathResource(fileProperties.getRestaurants()).getFile()));
+            BufferedReader br = new BufferedReader(new FileReader(new ClassPathResource(path).getFile()));
             List<Restaurant> restaurantList = new ArrayList<>();
             String line = br.readLine(); // skips the first line which is the header
             while ((line = br.readLine()) != null) {
