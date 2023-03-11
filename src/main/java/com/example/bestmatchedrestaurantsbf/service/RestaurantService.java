@@ -55,7 +55,7 @@ public class RestaurantService {
     }
 
     /**
-     * Loads all restaurants from a CSV file configures in the application's configuration.
+     * Loads all restaurants from a CSV file configured in the application's configuration.
      * @return list of all Restaurants present on the CSV file
      */
     public List<Restaurant> loadRestaurantsFromFile(String path) {
