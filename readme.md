@@ -1,7 +1,7 @@
 # Best Matched Restaurants
 This application is an API with functionality to search for restaurants based on specific criteria.
 
-Best used alongside the frontend counterpart.
+Best used alongside the [frontend counterpart](https://github.com/billybrianm/best-matched-restaurants-bf-fe).
 
 ## Features
 - Endpoint ```GET /restaurants``` to list all restaurants
