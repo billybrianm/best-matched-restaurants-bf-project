@@ -9,7 +9,7 @@ Best used alongside the [frontend counterpart](https://github.com/billybrianm/be
 - Endpoint ```GET /cuisines``` to list all cuisines
 
 ## Requirements
-- Java 17
+- Java 11
 - Maven
 
 ## Building

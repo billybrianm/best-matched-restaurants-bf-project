@@ -84,35 +84,35 @@ public class RestaurantService {
      * Filter list by names
      */
     public List<Restaurant> getAllWithSimilarName(List<Restaurant> list, String name){
-        return list.stream().filter(rest -> rest.getName().get().toLowerCase().contains(name.toLowerCase())).collect(Collectors.toList());
+        return list.stream().filter(restaurant -> restaurant.getName().get().toLowerCase().contains(name.toLowerCase())).collect(Collectors.toList());
     }
 
     /**
      * Filter list by rating (equals or higher)
      */
     public List<Restaurant> getAllWithSimilarOrHigherRating(List<Restaurant> list, Integer rating){
-        return list.stream().filter(rest -> rest.getCustomerRating().get() >= rating).collect(Collectors.toList());
+        return list.stream().filter(restaurant -> restaurant.getCustomerRating().get() >= rating).collect(Collectors.toList());
     }
 
     /**
      * Filter list by price (equals or lower)
      */
     public List<Restaurant> getAllWithSimilarOrLowerPrice(List<Restaurant> list, Integer price){
-        return list.stream().filter(rest -> rest.getPrice().get() <= price).collect(Collectors.toList());
+        return list.stream().filter(restaurant -> restaurant.getPrice().get() <= price).collect(Collectors.toList());
     }
 
     /**
      * Filter list by price (equals or lower)
      */
     public List<Restaurant> getAllWithSimilarOrLowerDistance(List<Restaurant> list, Integer distance){
-        return list.stream().filter(rest -> rest.getDistance().get() <= distance).collect(Collectors.toList());
+        return list.stream().filter(restaurant -> restaurant.getDistance().get() <= distance).collect(Collectors.toList());
     }
 
     /**
      * Filter list by cuisine id
      */
     public List<Restaurant> getAllWithSameCuisine(List<Restaurant> list, Integer cuisine){
-        return list.stream().filter(rest -> rest.getCuisineId().get().equals(cuisine)).collect(Collectors.toList());
+        return list.stream().filter(restaurant -> restaurant.getCuisineId().get().equals(cuisine)).collect(Collectors.toList());
     }
 
     /**
