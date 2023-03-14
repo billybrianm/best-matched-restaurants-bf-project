@@ -6,11 +6,11 @@ import com.example.bestmatchedrestaurantsbf.dto.Cuisine;
 import com.example.bestmatchedrestaurantsbf.exception.InvalidCsvFileException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,10 +30,14 @@ public class CuisineService {
      */
     public List<Cuisine> loadCuisinesFromFile(String path) {
         try {
-            BufferedReader br = new BufferedReader(new FileReader(new ClassPathResource(path).getFile()));
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(path);
+
+            // reading the files with buffered reader
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             List<Cuisine> cuisineList = new ArrayList<>();
-            String line = br.readLine(); // skips the first line which is the header
-            while ((line = br.readLine()) != null) {
+            String line = bufferedReader.readLine(); // skips the first line which is the header
+            while ((line = bufferedReader.readLine()) != null) {
                 String[] cuisineCsv = line.split(",");
                 cuisineList.add(Cuisine.builder()
                         .id(Integer.valueOf(cuisineCsv[0]))

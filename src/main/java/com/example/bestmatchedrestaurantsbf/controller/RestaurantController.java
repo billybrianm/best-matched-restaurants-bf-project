@@ -28,9 +28,10 @@ public class RestaurantController {
      */
     @GetMapping(value="/restaurants", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Restaurant>> getRestaurants(Restaurant restaurant) {
-        log.info("GET Restaurants: " + restaurant);
+        log.info("Received request to list Restaurants: " + restaurant);
         List<Restaurant> restaurants = restaurantService.matchBestRestaurants(restaurant);
 
+        log.info("Restaurants listed with OK status: " + restaurants);
         return ResponseEntity.ok(restaurants);
     }
 }

@@ -27,8 +27,10 @@ public class CuisineController {
      */
     @GetMapping(value="/cuisines", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Cuisine>> getCuisines() {
+        log.info("Received request to list cuisines");
         List<Cuisine> cuisines = cuisineService.getAllCuisines();
 
+        log.info("All cuisines listed with OK status.");
         return ResponseEntity.ok(cuisines);
     }
 }
